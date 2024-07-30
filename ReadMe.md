@@ -1,7 +1,7 @@
 
 # Kubernetes Cluster on DigitalOcean with Terraform
 
-This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It provisions one master node and one worker node with specific configurations.
+This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It provisions one master node and one worker node with specific configurations, creates a VPC, and adds the droplets to the "Invabode" project.
 
 ## Prerequisites
 
@@ -9,6 +9,7 @@ This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It pr
 - A DigitalOcean account
 - A DigitalOcean API token
 - SSH key added to your DigitalOcean account
+- - DigitalOcean project ID
 
 ## Project Structure
 
@@ -19,6 +20,9 @@ This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It pr
 ├── outputs.tf
 ├── terraform.tfvars
 └── modules
+    ├── vpc
+    │   ├── main.tf
+    │   └── variables.tf
     └── droplet
         ├── main.tf
         └── variables.tf
@@ -38,12 +42,13 @@ This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It pr
 do_token = "your_digitalocean_token"
 master_name = "k8s-master"
 worker_name = "k8s-worker"
-region = "nyc3"
+region = "syd1"
 master_size = "s-2vcpu-2gb"
 worker_size = "s-1vcpu-1gb"
 image = "ubuntu-20-04-x64"
 ssh_keys = ["your_ssh_key_fingerprint"]
 allowed_ports = [
+   { protocol = "tcp", port_range = "22" },
   { protocol = "tcp", port_range = "6443" },
   { protocol = "tcp", port_range = "2379-2380" },
   { protocol = "tcp", port_range = "6783" },
@@ -54,6 +59,9 @@ allowed_ports = [
   { protocol = "tcp", port_range = "443" },
   { protocol = "tcp", port_range = "30000-32767" }
 ]
+project_id = "your_project_id"
+vpc_name = "k8s-vpc"
+ip_range = "10.10.10.0/24"
 ```
 
 ## Usage

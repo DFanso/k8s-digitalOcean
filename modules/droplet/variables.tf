@@ -35,3 +35,13 @@ variable "allowed_ports" {
     port_range = string
   }))
 }
+
+variable "project_id" {
+  description = "DigitalOcean project ID"
+  type = string
+}
+
+variable "vpc_uuid" {
+  description = "DigitalOcean VPC ID"
+  type = string
+}

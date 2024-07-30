@@ -45,3 +45,20 @@ variable "allowed_ports" {
     port_range = string
   }))
 }
+
+variable "project_id" {
+  description = "DigitalOcean project ID"
+  type        = string
+}
+
+variable "vpc_name" {
+  description = "Name of the VPC"
+  type        = string
+  default     = "k8s-vpc"
+}
+
+variable "ip_range" {
+  description = "IP range for the VPC in CIDR notation"
+  type        = string
+  default     = "10.10.10.0/24"
+}
