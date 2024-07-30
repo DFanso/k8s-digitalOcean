@@ -97,7 +97,7 @@ ip_range = "10.10.10.0/24"
     After running `terraform apply`, the IP addresses of the master and worker nodes will be displayed.
 
 6. **Install necessary tolls:**:
-    - To install Setup VMs for k8s run the `common.sh` bash script on both VMs file located in `scripts`
+    - To Setup VMs for k8s, run the `common.sh` bash script on both VMs file located in `scripts`
     - And Run the `master.sh` on the master Node and get the join command return by the script and paste it on the worker node.
 
 
