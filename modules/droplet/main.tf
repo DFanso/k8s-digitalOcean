@@ -13,6 +13,7 @@ resource "digitalocean_droplet" "default" {
   size   = var.size
   image  = var.image
   ssh_keys = var.ssh_keys
+  vpc_uuid = var.vpc_uuid
 }
 
 resource "digitalocean_firewall" "default" {
@@ -32,7 +33,7 @@ resource "digitalocean_firewall" "default" {
 resource "digitalocean_project_resources" "default" {
   project = var.project_id
   resources = [
-    digitalocean_droplet.default.id
+    "do:droplet:${digitalocean_droplet.default.id}"
   ]
 }
 
