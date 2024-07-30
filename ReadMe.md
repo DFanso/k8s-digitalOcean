@@ -96,6 +96,17 @@ ip_range = "10.10.10.0/24"
 5. **Output**:
     After running `terraform apply`, the IP addresses of the master and worker nodes will be displayed.
 
+6. **Install necessary tolls:**:
+    - To install Setup VMs for k8s run the `common.sh` bash script on both VMs file located in `scripts`
+    - And Run the `master.sh` on the master Node and get the join command return by the script and paste it on the worker node.
+
+
+7. **Run a test Application:**:
+    - To test k8s master and worker nodes working correctly,
+      - Deploy the nginx server on master node use `manifests/nginx.yml` file and run `kubectl apply -f nginx.yml`.
+      - After Deploying try yo access it from the worker node ip `worker_node_ip:32000` (use the public ip),
+
+
 ## Clean Up
 
 To destroy the resources created by this configuration, run:
