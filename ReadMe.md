@@ -1,7 +1,7 @@
 
 # Kubernetes Cluster on DigitalOcean with Terraform
 
-This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It provisions one master node and one worker node with specific configurations, creates a VPC, and adds the droplets to the "Invabode" project.
+This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It provisions one master node and one worker node with specific configurations, creates a VPC, and adds the droplets to the declared project.
 
 ## Prerequisites
 
