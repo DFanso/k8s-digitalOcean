@@ -58,17 +58,34 @@ allowed_ports = [
 
 ## Usage
 
-1. **Initialize Terraform**:
-    ```sh
-    terraform init
-    ```
+1. **Initialize Terraform:**
 
-2. **Apply the Configuration**:
-    ```sh
-    terraform apply
-    ```
+   ```bash
+   terraform init
+   ```
 
-3. **Output**:
+2. **Validate Terraform Code:**
+
+   ```bash
+   terraform validate
+   ```   
+
+3. **Get the list of things Terraform Going to create:**
+
+   ```bash
+   terraform plan
+   ```   
+
+
+4. **Apply the configuration:**
+
+   ```bash
+   terraform apply
+   ```
+
+   Confirm the apply step by typing `yes` when prompted. Terraform will create the resources defined in the configuration.
+
+5. **Output**:
     After running `terraform apply`, the IP addresses of the master and worker nodes will be displayed.
 
 ## Clean Up
