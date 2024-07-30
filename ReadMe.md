@@ -8,8 +8,8 @@ This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It pr
 - [Terraform](https://www.terraform.io/downloads.html) installed on your local machine (Use terraform AMD64 binary because have 386 binary have some issues)
 - A DigitalOcean account
 - A DigitalOcean API token
-- SSH key added to your DigitalOcean account
-- - DigitalOcean project ID
+- SSH key added to your DigitalOcean account 
+- DigitalOcean project ID
 
 ## Project Structure
 
