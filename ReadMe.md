@@ -9,6 +9,7 @@ This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It pr
 - A DigitalOcean account
 - A DigitalOcean API token
 - SSH key added to your DigitalOcean account
+- - DigitalOcean project ID
 
 ## Project Structure
 

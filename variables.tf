@@ -1,41 +1,41 @@
 variable "do_token" {
   description = "DigitalOcean API token"
-  type        = string
+  type = string
 }
 
 variable "master_name" {
   description = "Name for the Kubernetes master node"
-  type        = string
+  type = string
 }
 
 variable "worker_name" {
   description = "Name for the Kubernetes worker node"
-  type        = string
+  type = string
 }
 
 variable "region" {
   description = "Region for the DigitalOcean droplet"
-  type        = string
+  type = string
 }
 
 variable "master_size" {
   description = "Size of the master node"
-  type        = string
+  type = string
 }
 
 variable "worker_size" {
   description = "Size of the worker node"
-  type        = string
+  type = string
 }
 
 variable "image" {
   description = "Droplet image"
-  type        = string
+  type = string
 }
 
 variable "ssh_keys" {
   description = "List of SSH key fingerprints"
-  type        = list(string)
+  type = list(string)
 }
 
 variable "allowed_ports" {
@@ -44,4 +44,9 @@ variable "allowed_ports" {
     protocol   = string
     port_range = string
   }))
+}
+
+variable "project_id" {
+  description = "DigitalOcean project ID"
+  type = string
 }

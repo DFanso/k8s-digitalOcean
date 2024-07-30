@@ -35,3 +35,8 @@ variable "allowed_ports" {
     port_range = string
   }))
 }
+
+variable "project_id" {
+  description = "DigitalOcean project ID"
+  type = string
+}

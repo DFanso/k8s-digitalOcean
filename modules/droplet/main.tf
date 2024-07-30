@@ -29,6 +29,13 @@ resource "digitalocean_firewall" "default" {
   }
 }
 
+resource "digitalocean_project_resources" "default" {
+  project = var.project_id
+  resources = [
+    digitalocean_droplet.default.id
+  ]
+}
+
 output "droplet_ip" {
   value = digitalocean_droplet.default.ipv4_address
 }
