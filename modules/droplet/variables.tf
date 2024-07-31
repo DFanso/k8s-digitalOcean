@@ -45,3 +45,8 @@ variable "vpc_uuid" {
   description = "DigitalOcean VPC ID"
   type = string
 }
+
+variable "monitoring" {
+  description = "DigitalOcean VM Monitoring"
+  type = bool
+}
