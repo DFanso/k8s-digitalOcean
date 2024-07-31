@@ -65,5 +65,5 @@ variable "ip_range" {
 
 variable "monitoring" {
   description = "DigitalOcean VM Monitoring"
-  type = bool
+  type        = bool
 }
