@@ -29,6 +29,7 @@ module "master" {
   allowed_ports = var.allowed_ports
   project_id    = var.project_id
   vpc_uuid      = module.vpc.vpc_id
+  
 }
 
 module "worker" {

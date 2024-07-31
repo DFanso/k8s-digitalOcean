@@ -14,6 +14,7 @@ resource "digitalocean_droplet" "default" {
   image  = var.image
   ssh_keys = var.ssh_keys
   vpc_uuid = var.vpc_uuid
+  monitoring = true
 }
 
 resource "digitalocean_firewall" "default" {
