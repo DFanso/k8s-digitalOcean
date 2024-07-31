@@ -9,3 +9,7 @@ output "worker_ip" {
 output "vpc_id" {
   value = module.vpc.vpc_id
 }
+
+output "droplet_id" {
+  value = module.worker.droplet_id
+}
