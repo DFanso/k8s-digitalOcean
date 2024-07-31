@@ -1,30 +1,45 @@
-# React + TypeScript + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Building and Pushing the Docker Image
 
-Currently, two official plugins are available:
+Follow these commands to build the Docker image, push it to DockerHub, and run it locally. Replace `dfanso` with your DockerHub username.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+# Build the Docker image
+docker build -t your-docker-username/k8s-frontend:latest .
 
-## Expanding the ESLint configuration
+# Push the Docker image to DockerHub
+docker push your-docker-username/k8s-frontend:latest
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+# Run the Docker image locally
+docker run -d -p 80:80 your-docker-username/k8s-frontend:latest
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Deploying the Docker Image to Kubernetes
+
+Use the following commands to deploy the Docker image to a Kubernetes cluster.
+
+```sh
+# Apply the Kubernetes deployment configuration
+kubectl apply -f k8s/frontend-deploy.yml
+
+# Get information about the services, including the port the LoadBalancer is pointing to
+kubectl get services
+
+# Get information about the running pods
+kubectl get pods
+```
+
+## Additional Information
+
+To get more details about the services and pods running in your Kubernetes cluster, you can use:
+
+```sh
+# Get detailed information about the services
+kubectl describe services
+
+# Get detailed information about the pods
+kubectl describe pods
+```
+
+Replace `your-docker-username` with your actual DockerHub username in all commands.
