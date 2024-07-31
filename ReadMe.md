@@ -26,6 +26,9 @@ This project sets up a Kubernetes cluster on DigitalOcean using Terraform. It pr
     └── droplet
         ├── main.tf
         └── variables.tf
+└── frontend
+└── backend
+└── k8s      
 ```
 
 - **main.tf**: The main configuration file that sets up the provider and modules for master and worker nodes.
@@ -62,6 +65,7 @@ allowed_ports = [
 project_id = "your_project_id"
 vpc_name = "k8s-vpc"
 ip_range = "10.10.10.0/24"
+monitoring = true
 ```
 
 ## Usage
@@ -100,11 +104,11 @@ ip_range = "10.10.10.0/24"
     - To Setup VMs for k8s, run the `common.sh` bash script on both VMs file located in `scripts`
     - And Run the `master.sh` on the master Node and get the join command return by the script and paste it on the worker node.
 
-
-7. **Run a test Application:**:
+<!-- have to change with the frontend & backend -->
+7. **Run a test Applications:**:
     - To test k8s master and worker nodes working correctly,
-      - Deploy the nginx server on master node use `manifests/nginx.yml` file and run `kubectl apply -f nginx.yml`.
-      - After Deploying try yo access it from the worker node ip `worker_node_ip:32000` (use the public ip),
+      - Refer to the [Frontend Deploy README](./frontend/README.md)
+      - Refer to the [Backend Deploy README](./backend/README.md)
 
 
 ## Clean Up

@@ -62,3 +62,8 @@ variable "ip_range" {
   type        = string
   default     = "10.10.10.0/24"
 }
+
+variable "monitoring" {
+  description = "DigitalOcean VM Monitoring"
+  type        = bool
+}
