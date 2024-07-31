@@ -30,7 +30,6 @@ module "master" {
   project_id    = var.project_id
   vpc_uuid      = module.vpc.vpc_id
   monitoring    = var.monitoring
-
 }
 
 module "worker" {
@@ -45,4 +44,22 @@ module "worker" {
   project_id    = var.project_id
   vpc_uuid      = module.vpc.vpc_id
   monitoring    = var.monitoring
+
+}
+
+locals {
+  module_worker_droplet_id = module.worker.droplet_id
+  module_master_droplet_id = module.master.droplet_id
+}
+
+module "loadbalancer" {
+  source            = "./modules/loadbalancer"
+  loadbalancer_name = "${var.master_name}-lb"
+  region            = var.region
+  droplet_ids       = [local.module_worker_droplet_id]
+  vpc_uuid          = module.vpc.vpc_id
+}
+
+output "loadbalancer_ip" {
+  value = module.loadbalancer.loadbalancer_ip
 }

@@ -67,3 +67,16 @@ variable "monitoring" {
   description = "DigitalOcean VM Monitoring"
   type        = bool
 }
+
+variable "loadbalancer_name" {
+  description = "The name of the load balancer"
+  type        = string
+}
+
+variable "droplet_ids" {
+  description = "List of droplet IDs to attach to the load balancer"
+  type        = list(number)
+}
+
+
+
