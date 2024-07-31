@@ -62,6 +62,7 @@ allowed_ports = [
 project_id = "your_project_id"
 vpc_name = "k8s-vpc"
 ip_range = "10.10.10.0/24"
+monitoring = true
 ```
 
 ## Usage
