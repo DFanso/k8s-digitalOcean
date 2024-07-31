@@ -43,12 +43,12 @@ EOF
 # Apply sysctl params without reboot
 sudo sysctl --system
 
-echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-$VERSION-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:/cri-o:/$VERSION/$OS/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
+echo 'deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /' | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+echo 'deb [signed-by=/usr/share/keyrings/libcontainers-crio-$VERSION-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:/cri-o:/$VERSION/$OS/ /' | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
 
 sudo mkdir -p /usr/share/keyrings
-curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:/cri-o:/$VERSION/$OS/Release.key | sudo tee /usr/share/keyrings/libcontainers-crio-$VERSION-archive-keyring.gpg > /dev/null
-curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/$OS/Release.key | sudo tee /usr/share/keyrings/libcontainers-archive-keyring.gpg > /dev/null
+curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:/cri-o:/$VERSION/$OS/Release.key | sudo tee /usr/share/keyrings/libcontainers-crio-$VERSION-archive-keyring.gpg > /dev/null
+curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/$OS/Release.key | sudo tee /usr/share/keyrings/libcontainers-archive-keyring.gpg > /dev/null
 
 sudo apt-get update
 sudo apt-get install cri-o cri-o-runc -y
