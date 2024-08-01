@@ -19,7 +19,7 @@ spec:
         - containerPort: 3000
         env:
         - name: NEXT_PUBLIC_API_URL
-          value: "http://backend-service:31860"
+          value: "http://backend-service:3000"
         resources:
           requests:
             memory: "64Mi"
