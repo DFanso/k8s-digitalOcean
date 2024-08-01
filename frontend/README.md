@@ -4,6 +4,11 @@
 
 Follow these commands to build the Docker image, push it to DockerHub, and run it locally. Replace `dfanso` with your DockerHub username.
 
+Add .env.local file in the project root and place this
+```
+NEXT_PUBLIC_API_URL=http://backend-service:3000
+```
+
 ```sh
 # Build the Docker image
 docker build -t your-docker-username/k8s-frontend:latest .
