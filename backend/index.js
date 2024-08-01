@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
+// Greetings array
 const greetings = [
     "Hello, World!",
     "Hi there!",
@@ -11,14 +12,18 @@ const greetings = [
     "Good day!"
 ];
 
-// Use the cors middleware
-app.use(cors());
+// Use the cors middleware to allow requests from any origin
+app.use(cors()); // To allow requests from any origin
+// Or specify a specific origin
+// app.use(cors({ origin: 'http://your-frontend-url.com' }));
 
-app.get('/', (req, res) => {
+// Endpoint to get a random greeting
+app.get('/api', (req, res) => {
     const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
-    res.send(randomGreeting);
+    res.json({ message: randomGreeting }); // Sending response as a JSON object
 });
 
+// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });

@@ -16,7 +16,10 @@ spec:
       - name: k8s-frontend
         image: dfanso/k8s-frontend:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000
+        env:
+        - name: NEXT_PUBLIC_API_URL
+          value: "http://backend-service:31860"
         resources:
           requests:
             memory: "64Mi"
@@ -24,9 +27,7 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -37,5 +38,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 3000
   type: LoadBalancer

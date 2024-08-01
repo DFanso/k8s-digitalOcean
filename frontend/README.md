@@ -1,45 +1,36 @@
-# Frontend
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Building and Pushing the Docker Image
+## Getting Started
 
-Follow these commands to build the Docker image, push it to DockerHub, and run it locally. Replace `dfanso` with your DockerHub username.
+First, run the development server:
 
-```sh
-# Build the Docker image
-docker build -t your-docker-username/k8s-frontend:latest .
-
-# Push the Docker image to DockerHub
-docker push your-docker-username/k8s-frontend:latest
-
-# Run the Docker image locally
-docker run -d -p 80:80 your-docker-username/k8s-frontend:latest
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Deploying the Docker Image to Kubernetes
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Use the following commands to deploy the Docker image to a Kubernetes cluster.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```sh
-# Apply the Kubernetes deployment configuration
-kubectl apply -f k8s/frontend-deploy.yml
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-# Get information about the services, including the port the LoadBalancer is pointing to
-kubectl get services
+## Learn More
 
-# Get information about the running pods
-kubectl get pods
-```
+To learn more about Next.js, take a look at the following resources:
 
-## Additional Information
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-To get more details about the services and pods running in your Kubernetes cluster, you can use:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-```sh
-# Get detailed information about the services
-kubectl describe services
+## Deploy on Vercel
 
-# Get detailed information about the pods
-kubectl describe pods
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Replace `your-docker-username` with your actual DockerHub username in all commands.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
