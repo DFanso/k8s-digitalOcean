@@ -40,7 +40,7 @@ variable "ssh_keys" {
 
 variable "allowed_ports" {
   description = "Ports to allow"
-  type = list(object({
+  type        = list(object({
     protocol   = string
     port_range = string
   }))
@@ -72,11 +72,3 @@ variable "loadbalancer_name" {
   description = "The name of the load balancer"
   type        = string
 }
-
-variable "droplet_ids" {
-  description = "List of droplet IDs to attach to the load balancer"
-  type        = list(number)
-}
-
-
-
