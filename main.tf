@@ -44,22 +44,23 @@ module "worker" {
   project_id    = var.project_id
   vpc_uuid      = module.vpc.vpc_id
   monitoring    = var.monitoring
-
 }
 
 locals {
-  module_worker_droplet_id = module.worker.droplet_id
-  module_master_droplet_id = module.master.droplet_id
+  droplet_ids = concat(
+    [module.master.droplet_id],
+    [module.worker.droplet_id]
+  )
 }
 
 module "loadbalancer" {
   source            = "./modules/loadbalancer"
-  loadbalancer_name = "${var.master_name}-lb"
+  loadbalancer_name = var.loadbalancer_name
   region            = var.region
-  droplet_ids       = [local.module_worker_droplet_id]
+  droplet_ids       = local.droplet_ids
   vpc_uuid          = module.vpc.vpc_id
+
+  depends_on = [module.master, module.worker]
 }
 
-output "loadbalancer_ip" {
-  value = module.loadbalancer.loadbalancer_ip
-}
+

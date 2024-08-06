@@ -10,6 +10,14 @@ output "vpc_id" {
   value = module.vpc.vpc_id
 }
 
-output "droplet_id" {
+output "master_id" {
+  value = module.master.droplet_id
+}
+
+output "worker_id" {
   value = module.worker.droplet_id
+}
+
+output "loadbalancer_ip" {
+  value = module.loadbalancer.loadbalancer_ip
 }
