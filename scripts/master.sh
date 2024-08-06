@@ -40,6 +40,8 @@ sudo chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
 # Install Claico Network Plugin Network 
 # kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 
+kubectl apply -f https://github.com/projectcalico/calico/blob/master/manifests/calico.yaml
+
 # Install flannel Network Plugin Network 
 
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml

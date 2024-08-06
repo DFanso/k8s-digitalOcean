@@ -14,11 +14,11 @@ resource "digitalocean_loadbalancer" "this" {
   forwarding_rule {
     entry_port     = 80
     entry_protocol = "http"
-    target_port    = 31082
+    target_port    = 32149
     target_protocol = "http"
   }
   healthcheck {
-    port     = 30824
+    port     = 32149
     protocol = "http"
     path     = "/"
   }
