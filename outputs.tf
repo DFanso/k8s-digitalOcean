@@ -21,3 +21,7 @@ output "worker_id" {
 output "loadbalancer_ip" {
   value = module.loadbalancer.loadbalancer_ip
 }
+
+output "loadbalancer_id" {
+  value = module.loadbalancer.loadbalancer_id
+}
