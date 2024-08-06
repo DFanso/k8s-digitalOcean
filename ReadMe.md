@@ -61,7 +61,8 @@ allowed_ports = [
   { protocol = "tcp", port_range = "8080" },
   { protocol = "tcp", port_range = "443" },
   { protocol = "tcp", port_range = "30000-32767" },
-  { protocol = "tcp", port_range = "179" }
+  { protocol = "tcp", port_range = "179" },
+  { protocol = "tcp", port_range = "9099" }
 ]
 project_id = "your_project_id"
 vpc_name = "k8s-vpc"
