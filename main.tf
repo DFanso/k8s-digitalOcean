@@ -48,7 +48,7 @@ module "worker" {
 
 locals {
   droplet_ids = concat(
-    [module.master.droplet_id],
+    [module.master.droplet_id], #have to remove this
     [module.worker.droplet_id]
   )
 }
